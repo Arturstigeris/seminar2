@@ -5,7 +5,7 @@ public class Student {
 	private String name;
 	private String surname;
 	
-	private static long counter = 0;
+	private static long counter = 10000;
 	
 	public long getSTID()
 	{
