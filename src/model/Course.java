@@ -6,7 +6,7 @@ public class Course {
 	private int creditPoints;
 	private Professor professor;
 	
-	private static long counter = 0;
+	private static long counter = 100000;
 	
 	public long getCID()
 	{
@@ -28,6 +28,7 @@ public class Course {
 		return professor;
 	}
 	
+	
 	public void setCID()
 	{
 		cID = counter;
@@ -36,46 +37,47 @@ public class Course {
 	
 	public void setTitle(String title)
 	{
-		if(title != null && title.matches("[A-ZĀŪŽČĒŅĪĻĢĶ](1)[a-zāūžčēņīļģķ]+"))
+		if(title != null && title.matches("[A-Za-z 0-9](4 - 40)"))
 			this.title = title;
 		else 
 			this.title ="Undefined";	
 	}
 
-	public void getCreditPoints(int creditPoints) 
+	public void setCreditPoints(int creditPoints) 
 	{
-		if(creditPoints != null && creditPoints.matches("[0-4]"))
+		if(creditPoints >= 1 && creditPoints <= 20)
 			this.creditPoints = creditPoints;
 		else 
-			this.creditPoints ="Undefined";
+			this.creditPoints = 2;
 	}
 
-	public void getProfessor(Degree professor) 
+	public void setProfessor(Professor professor) 
 	{
 		if(professor != null)
 			this.professor = professor;
 		else 
-			this.professor = professor.other;
+			this.professor = new Professor();
 	}
 	
-	public Professor()
+	
+	public Course()
 	{
-		setPID();
-		setName("Jānis");
-		setSurname("Bērziņš");
+		setCID();
+		setTitle("JAVA");
+		setCreditPoints();
 		setDegree(Degree.other);
 	}
 	
-	public Professor(String name, String surname, Degree degree)
+	public Course(String title, int creditPoints, Professor professor)
 	{
-		setPID();
-		setName(name);
-		setSurname(surname);
+		setCID();
+		setTitle("JAVA");
+		setCreditPoints();
 		setDegree(degree);
 	}
 	
 	public String toString()
 	{
-		return pID + ": " + degree + ", " + name + " " + surname;
+		return cID + ": " + title + ", " + creditPoints + " " + professor;
 	}
 }
