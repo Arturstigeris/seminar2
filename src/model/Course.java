@@ -64,20 +64,20 @@ public class Course {
 	{
 		setCID();
 		setTitle("JAVA");
-		setCreditPoints();
-		setDegree(Degree.other);
+		setCreditPoints(4);
+		setProfessor(new Professor());
 	}
 	
 	public Course(String title, int creditPoints, Professor professor)
 	{
 		setCID();
 		setTitle("JAVA");
-		setCreditPoints();
-		setDegree(degree);
+		setCreditPoints(4);
+		setProfessor(new Professor());
 	}
 	
 	public String toString()
 	{
-		return cID + ": " + title + ", " + creditPoints + " " + professor;
+		return cID + ": " + title + ", " + professor + " " + creditPoints;
 	}
 }
