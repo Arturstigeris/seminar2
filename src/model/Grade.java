@@ -66,5 +66,9 @@ public class Grade {
 		setCourse(new Course());
 	}
 	
+	public String toString()
+	{
+		return gID + ": " + value + " " + student + " " + course;
+	}
 	
 }
